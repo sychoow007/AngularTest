@@ -1,0 +1,30 @@
+<div class="container" enterTarget="insertAbsence">
+    <div class="row">
+        <div class="col-md-6">
+            <form name="newAbsenceForm">
+                <label for="absenceType">Type:</label>
+                <select id="absenceType" ng-model="absence.absenceType">
+                    <option value="verlof">verlof</option>
+                    <option value="feestdag">feestdag</option>
+                </select><br />
+                <label for="description">Omschrijving</label>
+                <textarea id="description" cols="30" rows="10" ng-model="absence.description"></textarea><br />
+                <p class="input-group">
+                    <label for="startDate">start</label>
+                    <input type="text" id="startDate" class="form-control" datepicker-popup="{{format}}" ng-model="absence.startDate" is-open="openedStart" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                </p>
+                <p class="input-group">
+                    <label for="endDate">eind</label>
+                    <input type="text" id="endDate" class="form-control" datepicker-popup="{{format}}" ng-model="absence.endDate" is-open="openedEnd" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                </p>
+                <button type="submit" id="insertAbsence" class="btn btn-primary" ng-click="saveAbsence(absence,newAbsenceForm)">Voeg afwezigheid toe</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container" enterTarget="registerUser">
+    <form name="newUserForm">
+    <div class="row">
+        <div class="col-md-12">
+                <label for="userName">Gebruikersnaam:</label>
+                <input type="text" ng-required placeholder="Gebruikersnaam" ng-model="user.userName" id="userName"/><br />
+                <label for="password">Wachtwoord:</label>
+                <input type="password" ng-required placeholder="Wachtwoord" ng-model="user.password" id="password" /><br />
+                <label for="name">Naam:</label>
+                <input type="text" placeholder="Naam" ng-model="user.name" id="name"/><br />
+                <label for="mail">E-mail:</label>
+                <input type="text" placeholder="E-mail" ng-model="user.mail" id="mail"/><br />
+
+                <div class="pull-left" ng-hide="isAuthenticated()"><span class="btn">Annuleer</span></div>
+                <div class="pull-right" ng-hide="isAuthenticated()"><button type="submit" class="btn btn-primary" ng-click="registerUser(user,newUserForm)">Registreer</button></div>
+            </div>
+        </div>
+    </form>
+</div>
