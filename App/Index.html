@@ -13,7 +13,7 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li><a ui-sref="absence">Afwezigheden</a></li>
-            <li><a ui-sref="newAbsence">Maak afwezigheid</a></li>
+            <li><a ui-sref="absence.edit">Maak afwezigheid</a></li>
             <li><a ui-sref="users">Gebruikers</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-hide="isAuthenticated()">
@@ -47,6 +47,7 @@
 <script src="js/services/userData.js"></script>
 <script src="js/services/userResource.js"></script>
 <script src="js/directives/focus.js"></script>
+<script src="js/directives/editAbsence.js"></script>
 <script src="js/controllers/mainMenuController.js"></script>
 <script src="js/controllers/absenceController.js"></script>
 <script src="js/controllers/editAbsenceController.js"></script>

@@ -9,17 +9,33 @@ angularApp.controller('AbsenceController',
 
         var user = authService.getCurrentUser();
 
+        $scope.saveAbsenceText = "Voeg toe";
+        //$scope.absencesForUser = absenceData.getAllAbsencesForUser("jurgen");//authService.getCurrentUserName());
 
-        $scope.absencesForUser = absenceData.getAllAbsencesForUser("jurgen");//authService.getCurrentUserName());
+        $scope.absence = {};
+        $scope.mySelections = [];
 
-        //$scope.absences = absenceData.getAllAbsences();
+        $scope.absences = absenceData.getAllAbsences();
         $scope.gridOptions = {
-            data: 'absencesForUser',
+            data: 'absences',
             showSelectionCheckBox: true,
-            afterSelectionChange: function(rowItem, event){
-                console.log(rowItem);
-                //$location.url('/newAbsence?absenceId=' + rowItem.id);
-            }
+            afterSelectionChange: function(){
+                $scope.selectionChanged();
+            },
+            selectedItems: $scope.mySelections,
+            multiSelect: false
         };
+
+        $scope.selectionChanged = function(){
+            $scope.absence = $scope.mySelections[0];
+            $scope.saveAbsenceText = "Sla op";
+        }
+
+        $scope.saveAbsence = function(absence){
+            if(absence.ID == null || absence.ID == 0)
+                absenceData.save(absence);
+            else
+                absenceData.update(absence);
+        }
     }
 );

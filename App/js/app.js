@@ -24,8 +24,8 @@ angularApp.config(['$stateProvider','$urlRouterProvider', '$locationProvider', f
             controller: "AbsenceController",
             templateUrl: "app/partials/absences.html"
         })
-        .state('newAbsence', {
-            url: "newAbsence",
+        .state('absence.edit', {
+            url: "editAbsence",
             controller: "EditAbsenceController",
             templateUrl: "app/partials/absence.new.html"
             //controller: function($scope) {
