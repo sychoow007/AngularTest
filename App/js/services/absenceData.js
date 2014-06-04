@@ -16,18 +16,9 @@ angularApp.factory('absenceData',function(absenceResource, authService){
         },
         save: function(absence){
             absenceResource.save(absence);
+        },
+        remove: function(absence){
+            absenceResource.delete(absence);
         }
     };
-
-    function getNextAbsenceId(absences){
-        var max = 0;
-
-        for (var id = 0; id < absences.length; id++)
-        {
-            if(absences[id].id > max)
-                max = absences[id].id;
-        }
-
-        return max + 1;
-    }
 });
